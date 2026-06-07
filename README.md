@@ -19,7 +19,7 @@
 
 ## 🎥 Demo Video
 
-[!\[Al-Maqra'ah Demo](https://img.youtube.com/vi/nG270QGE8Oc/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
+[!\[Al-Maqra'ah Demo](https://img.youtube.com/vi/nG270QGE8Oc/maxresdefault.jpg)](https://youtu.be/nG270QGE8Oc)
 
 > Click the thumbnail above to watch the full demonstration of the system.
 
