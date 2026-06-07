@@ -471,13 +471,13 @@ Rules not yet supported: Mīm Sākinah, Mudūd, Qalqalah, and other Tajwīd cate
 
 **Graduation Project — Jamoum University College, Umm Al-Qura University**
 
-|Name|Email|Role|
+|Name|Email|
 |-|-|-|
-|Sara Alsaedi|[sarakhalid44400@gmail.com](mailto:sarakhalid44400@gmail.com)|Team Member|
-|Jana Abusoudah|[Janaabusoudah@gmail.com](mailto:Janaabusoudah@gmail.com)|Team Member|
-|Remas Alsubhi|[Remasalharb55@gmail.com](mailto:Remasalharb55@gmail.com)|Team Member|
-|Amani Althahwani|[Amaniixx123@gmail.com](mailto:Amaniixx123@gmail.com)|Team Member|
-|Roz Bakkar|[rozabdullah72@gmail.com](mailto:rozabdullah72@gmail.com)|Team Member|
+|Sara Alsaedi|[sarakhalid44400@gmail.com](mailto:sarakhalid44400@gmail.com)|
+|Jana Abusoudah|[Janaabusoudah@gmail.com](mailto:Janaabusoudah@gmail.com)|
+|Remas Alsubhi|[Remasalharb55@gmail.com](mailto:Remasalharb55@gmail.com)|
+|Amani Althahwani|[Amaniixx123@gmail.com](mailto:Amaniixx123@gmail.com)|
+|Roz Bakkar|[rozabdullah72@gmail.com](mailto:rozabdullah72@gmail.com)|
 
 **Advisor:** Dr. Khaled Albishre
 
