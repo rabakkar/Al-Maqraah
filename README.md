@@ -472,7 +472,7 @@ Rules not yet supported: Mīm Sākinah, Mudūd, Qalqalah, and other Tajwīd cate
 **Graduation Project — Jamoum University College, Umm Al-Qura University**
 
 |Name|Email|
-|-|-|-|
+|-|-|
 |Sara Alsaedi|[sarakhalid44400@gmail.com](mailto:sarakhalid44400@gmail.com)|
 |Jana Abusoudah|[Janaabusoudah@gmail.com](mailto:Janaabusoudah@gmail.com)|
 |Remas Alsubhi|[Remasalharb55@gmail.com](mailto:Remasalharb55@gmail.com)|
