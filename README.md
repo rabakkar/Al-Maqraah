@@ -8,8 +8,9 @@
 
 *An AI-powered web application for automatic evaluation of Qur'an recitation, focusing on the rules of Nūn Sākinah and Tanwīn.*
 
-[!\[Watch Demo](https://img.shields.io/badge/▶\_Watch\_Demo-red?style=for-the-badge\&logo=youtube\&logoColor=white)](https://youtu.be/VIDEO_ID)
-[!\[Live Page](https://img.shields.io/badge/🌐\_Project\_Page-8c6d3c?style=for-the-badge)](https://USERNAME.github.io/REPO_NAME/)
+[!\[Watch Demo](https://img.shields.io/badge/▶\_Watch\_Demo-red?style=for-the-badge\&logo=youtube\&logoColor=white)](https://youtu.be/nG270QGE8Oc)
+[!\[Live Page](https://img.shields.io/badge/🌐\_Project\_Page-8c6d3c?style=for-the-badge)](https://rabakkar.github.io/
+Al-Maqraah/)
 [!\[Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://www.python.org/)
 [!\[Flask](https://img.shields.io/badge/Flask-3.0-000000?style=for-the-badge\&logo=flask\&logoColor=white)](https://flask.palletsprojects.com/)
 
