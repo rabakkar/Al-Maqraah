@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Al-Maqraah/assets/icons/maqraah-logo.png" alt="Al-Maqra'ah Logo" width="160"/>
+<img src="Al-Maqraah/assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah Logo" width="160"/>
 
 # Al-Maqra'ah — المقرأة
 
