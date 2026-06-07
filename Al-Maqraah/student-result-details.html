@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نتيجة الطالب | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+      </a>
+
+      <nav class="navbar__links student-nav-links">
+        <a href="student-profile.html">لوحتي</a>
+        <a href="recording.html">التسميع</a>
+        <a href="result.html" class="active">النتائج</a>
+      </nav>
+
+      <a href="login.html" class="btn btn--gold navbar__login">تسجيل الخروج</a>
+    </div>
+  </header>
+
+  <main class="result-page student-result-page">
+    <section class="result-hero student-result-hero container">
+      <div>
+        <span class="dashboard-badge" id="studentLevelBadge">Student Result</span>
+        <h1>نتيجتك في التلاوة</h1>
+        <p id="studentResultSummary">جاري تحميل النتيجة...</p>
+      </div>
+
+      <div class="score-ring" id="studentScoreRing">
+        <div style="position: relative; z-index: 1;">
+          <strong id="studentScoreValue">--</strong>
+          <span>الدرجة</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="student-result-overview container">
+      <article class="student-result-card">
+        <span>المستوى</span>
+        <strong id="studentLevelValue">--</strong>
+      </article>
+
+      <article class="student-result-card">
+        <span>السورة</span>
+        <strong id="studentSurahValue">--</strong>
+      </article>
+
+      <article class="student-result-card">
+        <span>الآيات</span>
+        <strong id="studentRangeValue">--</strong>
+      </article>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Pronunciation</span>
+          <h2>أخطاء النطق</h2>
+        </div>
+      </div>
+
+      <div class="student-error-grid" id="pronunciationErrors">
+        <div class="empty-state">جاري تحميل أخطاء النطق...</div>
+      </div>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Rules</span>
+          <h2>الأحكام</h2>
+        </div>
+      </div>
+
+      <div class="student-rule-list" id="studentRuleList">
+        <div class="empty-state">جاري تحميل ملخص الأحكام...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+        <p>منصة تعليمية حديثة تساعد الطلاب والمعلمين في تحسين التلاوة والتجويد.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="JavaScript/Pages/student-result-details.js"></script>
+</body>
+
+</html>

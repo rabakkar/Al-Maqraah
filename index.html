@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Maqra'ah — المقرأة</title>
+<link rel="icon" type="image/png" href="maqraah-logo.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f0e6 0%, #ebe1cd 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #1a3a3a;
+  }
+  .card {
+    background: #fffdf8;
+    border-radius: 24px;
+    padding: 50px 40px;
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(20, 50, 50, 0.12);
+    border: 1px solid rgba(180, 140, 80, 0.15);
+  }
+  .logo {
+    max-width: 320px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  .tagline {
+    font-size: 1.15rem;
+    color: #2d4a4a;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    padding: 0 10px;
+  }
+  .tagline em {
+    color: #5a6b6b;
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 10px;
+  }
+  .buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: #d4a93a;
+    color: #1a3a3a;
+  }
+  .btn-primary:hover {
+    background: #b8902a;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 169, 58, 0.4);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #1a3a3a;
+    border-color: #1a3a3a;
+  }
+  .btn-secondary:hover {
+    background: #1a3a3a;
+    color: white;
+    transform: translateY(-2px);
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(20, 50, 50, 0.1);
+  }
+  .feature {
+    padding: 16px 12px;
+    background: rgba(212, 169, 58, 0.08);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #2d4a4a;
+    font-weight: 500;
+  }
+  .feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .team {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(20, 50, 50, 0.1);
+    font-size: 0.88rem;
+    color: #5a6b6b;
+    line-height: 1.8;
+  }
+  .team strong { color: #1a3a3a; }
+  .team .names {
+    color: #d4a93a;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  @media (max-width: 500px) {
+    .card { padding: 35px 22px; }
+    .logo { max-width: 260px; }
+    .tagline { font-size: 1rem; }
+    .btn { padding: 12px 22px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="maqraah-logo.png" alt="Al-Maqra'ah — المقرأة" class="logo">
+
+    <p class="tagline">
+      نظام ذكي لتقييم تلاوة القرآن الكريم آليًا، يحلّل أحكام النون الساكنة والتنوين ويصنّف الطلاب وفق إعدادات يحدّدها المعلم.
+      <em>An AI-powered Qur'an recitation evaluation system focused on Nūn Sākinah and Tanwīn rules.</em>
+    </p>
+
+    <div class="buttons">
+      <a href="https://youtu.be/nG270QGE8Oc" class="btn btn-primary" target="_blank">
+        ▶ مشاهدة العرض التوضيحي
+      </a>
+      <a href="https://github.com/rabakkar/Al-Maqraah" class="btn btn-secondary" target="_blank">
+        💻 الكود على GitHub
+      </a>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">🎙️</span>
+        تحليل صوتي بالذكاء الاصطناعي
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📊</span>
+        تقييم بأوزان قابلة للضبط
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎯</span>
+        تصنيف تلقائي للمستويات
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📚</span>
+        أربعة أحكام تجويد
+      </div>
+    </div>
+
+    <div class="team">
+      <strong>مشروع تخرج</strong> — الكلية الجامعية بالجموم، جامعة أم القرى
+      <br>
+      <span class="names">Sara · Jana · Remas · Amani · Roz</span>
+      <br>
+      <em>إشراف د. خالد البشري</em>
+    </div>
+  </div>
+</body>
+</html>

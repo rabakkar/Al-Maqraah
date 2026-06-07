@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة الطالب | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__brand">
+      <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+    </a>
+
+    <nav class="navbar__links student-nav-links">
+      <a href="student-profile.html" class="active">لوحتي</a>
+      <a href="recording.html">التسميع</a>
+      <a href="result.html">النتائج</a>
+    </nav>
+
+    <a href="login.html" class="btn btn--gold navbar__login">
+      تسجيل الخروج
+    </a>
+  </div>
+</header>
+
+<main class="student-page">
+<section class="student-hero container">
+
+  <div class="student-hero__text">
+    <span class="dashboard-badge">Student Dashboard</span>
+
+    <h1>السلام عليكم، أحمد</h1>
+
+    <p>
+انتظر تكليف المعلم، ثم سجّل تلاوتك واستمع إليها جيدًا قبل الإرسال، وبعدها يمكنك الاطلاع على نتيجة التقييم والتفاصيل المتعلقة بتلاوتك.
+    </p>
+
+    <div class="today-task-mini">
+      <strong>التكليف</strong>
+      <span> يحدد من قبل المعلم </span>
+    </div>
+
+    <div class="student-hero__actions">
+      <a href="recording.html" class="btn btn--gold">بدأ التكليف</a>
+    </div>
+  </div>
+
+</section>
+  <section class="student-panel recent-panel container">
+    <div class="recent-header">
+      <div>
+        <span class="panel-label">Recent Recitations</span>
+        <h2>آخر التلاوات</h2>
+      </div>
+
+      <a href="result.html">عرض الكل</a>
+    </div>
+
+    <div class="recitation-list">
+      <div class="recitation-row">
+        <div>
+          <strong>سورة الفاتحة</strong>
+          <span>2026/05/07</span>
+        </div>
+        <p>87%</p>
+        <span class="status good">مكتملة</span>
+      </div>
+
+      <div class="recitation-row">
+        <div>
+          <strong>سورة الإخلاص</strong>
+          <span>2026/05/05</span>
+        </div>
+        <p>79%</p>
+        <span class="status mid">تحتاج مراجعة</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+      <p>
+        منصة تعليمية حديثة تساعد الطلاب والمعلمين
+        في تحسين التلاوة والتجويد باستخدام تقنيات الذكاء الاصطناعي.
+      </p>
+    </div>
+
+    <div class="footer__links">
+      <div>
+        <h4>السياسات</h4>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الاستخدام</a>
+      </div>
+
+      <div>
+        <h4>الدعم</h4>
+        <a href="#">تواصل معنا</a>
+        <a href="#">مركز المساعدة</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    © 2026 Al-Maqra'ah. All rights reserved.
+  </div>
+</footer>
+
+<script src="JavaScript/Pages/student-profile.js"></script>
+</body>
+</html>

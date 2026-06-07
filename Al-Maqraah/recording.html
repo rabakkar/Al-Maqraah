@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل التلاوة | Al-Maqra'ah</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="container navbar__inner">
+
+        <a href="index.html" class="navbar__brand">
+            <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+        </a>
+
+        <nav class="navbar__links student-nav-links">
+            <a href="student-profile.html">لوحتي</a>
+            <a href="recording.html" class="active">التسميع</a>
+            <a href="result.html">النتائج</a>
+        </nav>
+
+        <a href="login.html" class="btn btn--gold navbar__login">
+            تسجيل الخروج
+        </a>
+
+    </div>
+</header>
+
+<main class="recording-page recording-page--reader">
+
+    <section class="recording-intro container">
+        <span class="dashboard-badge">Recitation Session</span>
+        <h1>تسميع التكليف</h1>
+        <p>
+           سيظهر هنا التكليف الذي حدده المعلم. قم بتسجيل تلاوتك ثم إرسالها ليتم تحديد مستواك.
+        </p>
+    </section>
+
+    <section class="recording-workspace container">
+
+        <article class="quran-reader">
+            <div class="quran-reader__header">
+                <div>
+                    <span class="panel-label">تكليف المعلم</span>
+                    <p id="assignedAyahRef">سورة ... - الآيات ...</p>
+                </div>
+                <div class="quran-reader__meta">
+                    <span id="assignedSurah">...</span>
+                    <strong id="assignedRange">...</strong>
+                </div>
+            </div>
+
+            <div class="ayah-box quran-reader__text">
+                <h2 id="assignedAyahText">
+                    يتم تحميل الآيات...
+                </h2>
+            </div>
+        </article>
+
+        <aside class="recording-control-panel">
+            <div class="recording-guidance">
+                <h3>قبل التسجيل</h3>
+                              <ul>
+                    <li>اختر مكانًا هادئًا قبل بدء التسجيل.</li>
+                    <li>اترك ثانية قبل بدء التلاوة وثانية بعد الانتهاء.</li>
+                    <li>انطق مخارج الحروف بوضوح وأعطِ كل حرف حقه ومستحقه.</li>
+                    <li>تأكد من وضوح الصوت أثناء التلاوة.</li>
+                    <li>سيكون التسجيل مرة واحدة، فتأكد من جاهزيتك قبل إرسال التسجيل.</li>
+                </ul>
+            </div>
+
+            <div class="timer" id="recordTimer">
+                00:00
+            </div>
+
+            <div class="record-actions">
+                <button class="record-btn" id="recordBtn" aria-label="بدء أو إيقاف التسجيل">
+                    <img src="assets/icons/w-mic.png" alt="">
+                </button>
+
+                <button class="btn btn--gold" id="submitRecording">
+                    إرسال التسجيل
+                </button>
+            </div>
+
+            <div class="audio-preview" id="audioPreview">
+                <audio id="audioPlayer" controls></audio>
+            </div>
+
+            <p class="record-hint">
+                اضغط على زر المايكروفون لبدء التسجيل، واضغط مرة أخرى للإيقاف.
+            </p>
+
+            <div class="heard-text-panel" id="heardTextPanel" hidden>
+                <span>النص المسموع</span>
+                <p id="heardTextValue"></p>
+            </div>
+        </aside>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="container footer__inner">
+
+        <div class="footer__brand">
+            <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+
+            <p>
+                منصة تعليمية حديثة تساعد الطلاب والمعلمين في تحسين التلاوة والتجويد باستخدام تقنيات الذكاء الاصطناعي.
+            </p>
+        </div>
+
+        <div class="footer__links">
+
+            <div>
+                <h4>السياسات</h4>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">شروط الاستخدام</a>
+            </div>
+
+            <div>
+                <h4>الدعم</h4>
+                <a href="#">تواصل معنا</a>
+                <a href="#">مركز المساعدة</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container footer__bottom">
+        © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+
+</footer>
+
+<script src="JavaScript/Pages/recording.js"></script>
+
+</body>
+
+</html>

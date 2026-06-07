@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لوحة المعلم | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+      </a>
+
+      <nav class="navbar__links teacher-nav-links">
+        <a href="#overview" class="active" data-dashboard-tab="overview">لوحة المعلم</a>
+        <a href="#assignments" data-dashboard-tab="assignments">التكليفات</a>
+        <a href="#students" data-dashboard-tab="students">الطلاب</a>
+        <a href="scoring-settings.html">الأوزان</a>
+        <a href="#teachers" id="teacherAdminNav" data-dashboard-tab="teachers">المعلمون</a>
+      </nav>
+
+      <a href="login.html" class="btn btn--gold navbar__login">تسجيل الخروج</a>
+    </div>
+  </header>
+
+  <main class="teacher-page">
+    <section class="teacher-hero container" data-dashboard-hero>
+      <div class="teacher-hero__content">
+        <span class="dashboard-badge">Teacher Dashboard</span>
+        <h1>مرحبًا بك في لوحة المعلم</h1>
+        <p>
+          تابع أداء الطلاب، وحدد سور التلاوة المطلوبة، وراجع النتائج التي يرسلها نظام التحليل بعد تسجيل الطالب.
+        </p>
+      </div>
+
+      <div class="teacher-stats">
+        <article class="stat-card">
+          <img src="assets/icons/g-book.png" alt="">
+          <span>الطلاب</span>
+          <strong id="studentsCount">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <img src="assets/icons/g-mic.png" alt="">
+          <span>إجمالي القراءات</span>
+          <strong id="recitationsCount">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <img src="assets/icons/g-db.png" alt="">
+          <span>متوسط الإتقان</span>
+          <strong id="averageScore">0%</strong>
+        </article>
+
+        <article class="stat-card">
+          <img src="assets/icons/s-book.png" alt="">
+          <span>تكليفات معلقة</span>
+          <strong id="pendingAssignmentsCount">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="teacher-workspace container">
+      <section class="dashboard-view is-active" id="overview" data-dashboard-view="overview">
+        <div class="teacher-overview-grid">
+          <article class="overview-action">
+            <span class="panel-label">Next Step</span>
+            <h2>جهز تكليف تحديد المستوى</h2>
+            <p>اختر السورة ونطاق الآيات التي سيقرأها الطالب مرة واحدة ليتم تصنيفه تلقائيًا.</p>
+            <button class="btn btn--gold" type="button" data-dashboard-tab="assignments">إنشاء تكليف</button>
+          </article>
+
+          <article class="overview-action">
+            <span class="panel-label">Students</span>
+            <h2>راجع تصنيفات الطلاب</h2>
+            <p>تابع مستوى كل طالب، آخر نتيجة، وهل لديه تكليف بانتظار التسليم.</p>
+            <button class="btn btn--outline" type="button" data-dashboard-tab="students">عرض الطلاب</button>
+          </article>
+
+          <article class="overview-action">
+            <span class="panel-label">Weights</span>
+            <h2>اضبط أوزان المستويات</h2>
+            <p>حدّد الأحكام وأوزانها لكل مستوى قبل بدء اختبار الطلاب.</p>
+            <a class="btn btn--outline" href="scoring-settings.html">إعداد الأوزان</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-view" id="assignments" data-dashboard-view="assignments" hidden>
+        <article class="teacher-panel assignment-panel">
+          <div class="panel-heading">
+            <span class="panel-label">Assignments</span>
+            <h2>تكليف تلاوة</h2>
+          </div>
+
+          <form class="assignment-form" id="assignmentForm">
+            <p class="form-note">سيتم نشر التكليف لجميع الطلاب المضافين في المنصة.</p>
+            
+            <div class="input-group">
+              <label for="surahSelect">اختر السورة</label>
+              <select id="surahSelect" required>
+                <option value="">جاري تحميل السور...</option>
+              </select>
+            </div>
+
+            <div class="ayah-range">
+              <div class="input-group">
+                <label for="ayahFrom">من الآية</label>
+                <input id="ayahFrom" type="number" min="1" value="1" required>
+              </div>
+
+              <div class="input-group">
+                <label for="ayahTo">إلى الآية</label>
+                <input id="ayahTo" type="number" min="1" value="5" required>
+              </div>
+            </div>
+
+            <button class="btn btn--gold login-btn" type="submit">حفظ ونشر التكليف</button>
+            <p class="form-status" id="assignmentStatus" aria-live="polite"></p>
+          </form>
+        </article>
+      </section>
+
+      <section class="dashboard-view" id="students" data-dashboard-view="students" hidden>
+        <article class="teacher-panel">
+          <div class="panel-heading">
+            <span class="panel-label">Students</span>
+            <h2>متابعة الطلاب</h2>
+          </div>
+
+          <div class="student-table" id="studentProgressRows">
+            <div class="empty-state">جاري تحميل بيانات الطلاب...</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-view" id="teachers" data-dashboard-view="teachers" hidden>
+        <article class="teacher-panel admin-teachers-panel" id="teacherAdminPanel" hidden>
+          <div class="recent-header">
+            <div>
+              <span class="panel-label">Teacher Management</span>
+              <h2>إضافة معلم للمقرأة</h2>
+            </div>
+            <span class="status good">صلاحية أدمن</span>
+          </div>
+
+          <form class="teacher-create-form" id="teacherCreateForm">
+            <div class="input-group">
+              <label for="teacherFullName">اسم المعلم</label>
+              <input id="teacherFullName" type="text" placeholder="أدخل اسم المعلم" required>
+            </div>
+
+            <div class="input-group">
+              <label for="teacherEmail">البريد الإلكتروني</label>
+              <input id="teacherEmail" type="email" placeholder="teacher@example.com" required>
+            </div>
+
+            <div class="input-group">
+              <label for="teacherPassword">كلمة المرور المؤقتة</label>
+              <input id="teacherPassword" type="password" placeholder="••••••••" required>
+            </div>
+
+            <label class="remember teacher-admin-check">
+              <input id="teacherIsAdmin" type="checkbox">
+              منح هذا المعلم صلاحية إضافة معلمين
+            </label>
+
+            <button class="btn btn--gold" type="submit">إضافة المعلم</button>
+          </form>
+
+          <p class="form-status" id="teacherCreateStatus" aria-live="polite"></p>
+
+          <div class="teacher-list" id="teacherRows"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+        <p>نظام تقييم تلاوة القرآن الكريم المدعوم بالذكاء الاصطناعي.</p>
+      </div>
+
+      <div class="footer__links">
+        <div>
+          <h4>السياسات</h4>
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">شروط الاستخدام</a>
+        </div>
+
+        <div>
+          <h4>الدعم</h4>
+          <a href="#">تواصل معنا</a>
+          <a href="#">مركز المساعدة</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="JavaScript/Pages/teacher-dashboard.js"></script>
+</body>
+
+</html>

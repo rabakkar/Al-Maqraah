@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نتائج الطالب | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+      </a>
+
+      <nav class="navbar__links teacher-nav-links">
+        <a href="teacher-dashboard.html">لوحة المعلم</a>
+        <a href="teacher-dashboard.html#assignments">التكليفات</a>
+        <a href="teacher-dashboard.html#students" class="active">الطلاب</a>
+        <a href="scoring-settings.html">الأوزان</a>
+        <a href="teacher-dashboard.html#teachers" id="teacherAdminNav" style="display: none;">المعلمون</a>
+      </nav>
+
+      <a href="login.html" class="btn btn--gold navbar__login">تسجيل الخروج</a>
+    </div>
+  </header>
+
+  <main class="result-page teacher-student-results-page">
+    <section class="result-hero container">
+      <div>
+        <span class="dashboard-badge">Student Results</span>
+        <h1 id="teacherStudentResultsTitle">نتائج الطالب</h1>
+        <p id="teacherStudentResultsSummary">جار تحميل نتائج الطالب...</p>
+      </div>
+
+      <a class="btn btn--outline" href="teacher-dashboard.html#students">العودة للطلاب</a>
+    </section>
+
+    <section class="analysis-panel container" id="teacherStudentResultsSection">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Results</span>
+          <h2>سجل نتائج الطالب</h2>
+        </div>
+      </div>
+
+      <div class="results-list" id="teacherStudentResultsList">
+        <div class="empty-state">جار تحميل النتائج...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+        <p>نظام تقييم تلاوة القرآن الكريم المدعوم بالذكاء الاصطناعي.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="JavaScript/Pages/teacher-student-results.js"></script>
+</body>
+
+</html>

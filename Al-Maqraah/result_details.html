@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تفاصيل النتيجة | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+      </a>
+
+      <nav class="navbar__links teacher-nav-links">
+        <a href="teacher-dashboard.html">لوحة المعلم</a>
+        <a href="teacher-dashboard.html#assignments">التكليفات</a>
+        <a href="teacher-dashboard.html#students" class="active">الطلاب</a>
+        <a href="scoring-settings.html">الأوزان</a>
+        <a href="teacher-dashboard.html#teachers" id="teacherAdminNav" style="display: none;">المعلمون</a>
+      </nav>
+
+      <a href="login.html" class="btn btn--gold navbar__login">تسجيل الخروج</a>
+    </div>
+  </header>
+
+  <main class="result-page">
+    <section class="result-hero container">
+      <div>
+        <span class="dashboard-badge">Noon Sakinah Analysis</span>
+        <h1>تفاصيل نتيجة التلاوة</h1>
+        <p id="resultSummary">جاري تحميل تفاصيل النتيجة...</p>
+      </div>
+
+      <div class="score-ring" id="scoreRing">
+        <div style="position: relative; z-index: 1;">
+          <strong id="scoreValue">--</strong>
+          <span>الدرجة النهائية</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-grid container">
+      <article class="result-card">
+        <span>المستوى</span>
+        <strong id="resultLevel">--</strong>
+      </article>
+
+      <article class="result-card">
+        <span>السورة</span>
+        <strong id="resultSurah">--</strong>
+      </article>
+
+      <article class="result-card">
+        <span>نطاق الآيات</span>
+        <strong id="resultRange">--</strong>
+      </article>
+
+      <article class="result-card">
+        <span>التسجيل الصوتي</span>
+        <audio id="audioPlayer" controls style="width: 100%; margin-top: 10px;"></audio>
+      </article>
+    </section>
+
+    <section class="summary-strip container">
+      <article class="outcome-card">
+        <span>إجمالي المواضع</span>
+        <strong id="summaryTotal">0</strong>
+      </article>
+
+      <article class="outcome-card passed">
+        <span>مطابق</span>
+        <strong id="summaryPassed">0</strong>
+      </article>
+
+      <article class="outcome-card review">
+        <span>يحتاج مراجعة</span>
+        <strong id="summaryReview">0</strong>
+      </article>
+
+      <article class="outcome-card unmatched">
+        <span>غير محدد</span>
+        <strong id="summaryUnmatched">0</strong>
+      </article>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Weighted Score</span>
+          <h2>تفصيل الدرجة النهائية</h2>
+        </div>
+      </div>
+
+      <div class="score-components" id="scoreComponents"></div>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Pronunciation Match</span>
+          <h2>تفاصيل قراءة الطالب</h2>
+        </div>
+      </div>
+
+      <div class="pronunciation-match" id="pronunciationMatch">
+        <article>
+          <span>النص الذي سمعه النظام</span>
+          <p id="heardTranscript">--</p>
+        </article>
+
+        <article>
+          <span>النص بعد المعالجة</span>
+          <p id="normalizedTranscript">--</p>
+        </article>
+      </div>
+
+      <div class="word-evaluation-list" id="wordEvaluationList">
+        <div class="empty-state">جاري تحميل تفاصيل الكلمات...</div>
+      </div>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Rules Breakdown</span>
+          <h2>ملخص الأحكام</h2>
+        </div>
+      </div>
+
+      <div class="rule-table" id="ruleTable"></div>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Detailed Evaluations</span>
+          <h2>تفاصيل المواضع</h2>
+        </div>
+        <a href="teacher-dashboard.html#students" id="resultBackLink">العودة لنتائج الطالب</a>
+      </div>
+
+      <div class="evaluations-list" id="evaluationsList">
+        <div class="empty-state">جاري تحميل التفاصيل...</div>
+      </div>
+    </section>
+
+    <section class="analysis-panel container">
+      <div class="recent-header">
+        <div>
+          <span class="panel-label">Model Output</span>
+          <h2>الرسم الصوتي والمحاذاة</h2>
+        </div>
+      </div>
+
+      <div class="alignment-grid">
+        <article>
+          <span>حروف النص المرجعي</span>
+          <strong id="referenceLetters">--</strong>
+        </article>
+
+        <article>
+          <span>حروف المخرج الصوتي</span>
+          <strong id="predictedLetters">--</strong>
+        </article>
+
+        <article>
+          <span>حروف تمت محاذاتها</span>
+          <strong id="mappedLetters">--</strong>
+        </article>
+      </div>
+
+      <p class="phonetic-output" id="phoneticOutput">--</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+        <p>منصة تعليمية حديثة تساعد الطلاب والمعلمين في تحسين التلاوة والتجويد.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="JavaScript/Pages/result_details.js"></script>
+</body>
+
+</html>

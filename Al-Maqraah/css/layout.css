@@ -1,0 +1,152 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 18px;
+  z-index: 1000;
+  margin: 18px auto 0;
+}
+
+.navbar__inner {
+  height: 72px;
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+
+  box-shadow: var(--shadow);
+}
+
+.navbar-logo {
+  width: 132px;
+  object-fit: contain;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.navbar__links a {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  color: var(--green);
+}
+
+.navbar__login {
+  min-width: 136px;
+}
+
+.navbar__spacer {
+  min-width: 136px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 42px 0 24px;
+  background: #0b5d3d;
+  color: var(--white);
+  margin-top: 80px;
+  border-radius: 34px 34px 0 0;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 16px;
+}
+
+.footer__brand p {
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+  max-width: 360px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 70px;
+}
+
+.footer__links h4 {
+  font-size: 13px;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,0.9);
+}
+
+.footer__links a {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer__bottom {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar__inner {
+    height: auto;
+    min-height: 72px;
+    padding: 12px 16px;
+    gap: 14px;
+    border-radius: 28px;
+  }
+
+  .navbar-logo {
+    width: 110px;
+  }
+
+  .navbar__actions {
+    gap: 8px;
+  }
+
+  .navbar__login {
+    min-width: 0;
+    padding-inline: 14px;
+    font-size: 13px;
+  }
+}

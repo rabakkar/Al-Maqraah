@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إعداد الأوزان | Al-Maqra'ah</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/icons/g-maqraah-logo.png" alt="Al-Maqra'ah" class="navbar-logo">
+      </a>
+
+      <nav class="navbar__links teacher-nav-links">
+        <a href="teacher-dashboard.html">لوحة المعلم</a>
+        <a href="teacher-dashboard.html#assignments">التكليفات</a>
+        <a href="teacher-dashboard.html#students">الطلاب</a>
+        <a href="scoring-settings.html" class="active">الأوزان</a>
+        <a href="teacher-dashboard.html#teachers" id="teacherAdminNav">المعلمون</a>
+      </nav>
+
+      <a href="login.html" class="btn btn--gold navbar__login">تسجيل الخروج</a>
+    </div>
+  </header>
+
+  <main class="teacher-page scoring-page">
+    <section class="teacher-hero scoring-hero container">
+      <div class="teacher-hero__content">
+        <span class="dashboard-badge">Scoring Levels</span>
+        <h1>إعداد الأوزان حسب مستوى الطالب</h1>
+        <p>
+          خصص أحكام النون الساكنة والتنوين وأوزانها لكل مستوى من مستويات الطلاب.
+        </p>
+      </div>
+
+      <div class="teacher-stats level-summary">
+        <article class="stat-card">
+          <img src="assets/icons/g-book.png" alt="">
+          <span>مبتدئ</span>
+          <strong id="beginnerRuleCount">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <img src="assets/icons/s-book.png" alt="">
+          <span>متوسط</span>
+          <strong id="intermediateRuleCount">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <img src="assets/icons/g-db.png" alt="">
+          <span>متقدم</span>
+          <strong id="advancedRuleCount">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="teacher-workspace scoring-workspace container">
+      <article class="teacher-panel scoring-settings-panel scoring-levels-panel">
+        <div class="recent-header">
+          <div>
+            <span class="panel-label">Weights</span>
+            <h2>الأحكام والأوزان</h2>
+          </div>
+          <span class="status mid">تؤثر على النتائج الجديدة فقط</span>
+        </div>
+
+        <form class="level-settings-form" id="levelSettingsForm">
+          <div class="level-settings-grid" id="levelSettingsGrid">
+            <div class="empty-state">جاري تحميل إعدادات المستويات...</div>
+          </div>
+
+          <div class="scoring-actions">
+            <button class="btn btn--gold" type="submit">حفظ أوزان المستويات</button>
+            <p class="form-status" id="levelSettingsStatus" aria-live="polite"></p>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/icons/maqraah-logo.png" alt="" class="footer-logo">
+        <p>نظام تقييم تلاوة القرآن الكريم المدعوم بالذكاء الاصطناعي.</p>
+      </div>
+
+      <div class="footer__links">
+        <div>
+          <h4>السياسات</h4>
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">شروط الاستخدام</a>
+        </div>
+
+        <div>
+          <h4>الدعم</h4>
+          <a href="#">تواصل معنا</a>
+          <a href="#">مركز المساعدة</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      © 2026 Al-Maqra'ah. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="JavaScript/Pages/scoring-settings.js"></script>
+</body>
+
+</html>
