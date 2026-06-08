@@ -8,20 +8,26 @@
 
 *An AI-powered web application for automatic evaluation of Qur'an recitation, focusing on the rules of Nūn Sākinah and Tanwīn.*
 
-[!\[Watch Demo](https://img.shields.io/badge/▶\_Watch\_Demo-red?style=for-the-badge\&logo=youtube\&logoColor=white)](https://youtu.be/nG270QGE8Oc)
-[!\[Live Page](https://img.shields.io/badge/🌐\_Project\_Page-8c6d3c?style=for-the-badge)](https://rabakkar.github.io/Al-Maqraah/)
+[![Watch Demo](https://img.shields.io/badge/▶_Watch_Demo-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/nG270QGE8Oc)
+[![Live Page](https://img.shields.io/badge/🌐_Project_Page-8c6d3c?style=for-the-badge)](https://rabakkar.github.io/Al-Maqraah/)
 
 </div>
 
-\---
+---
 
 ## 🎥 Demo Video
 
-[!\[Al-Maqra'ah Demo](https://img.youtube.com/vi/nG270QGE8Oc/maxresdefault.jpg)](https://youtu.be/nG270QGE8Oc)
+<div align="center">
 
-> Click the thumbnail above to watch the full demonstration of the system.
+<a href="https://youtu.be/nG270QGE8Oc" target="_blank">
+  <img src="https://img.youtube.com/vi/nG270QGE8Oc/maxresdefault.jpg" alt="Watch the Al-Maqra'ah demo on YouTube" width="700"/>
+</a>
 
-\---
+<p><em>▶ Click the thumbnail above to watch the full demonstration on YouTube</em></p>
+
+</div>
+
+---
 
 ## Table of Contents
 
@@ -32,7 +38,7 @@
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [Running the Application](#running-the-application)
-* [User Roles \& Workflow](#user-roles--workflow)
+* [User Roles & Workflow](#user-roles--workflow)
 * [Scoring System](#scoring-system)
 * [Key Modules](#key-modules)
 * [Database Schema](#database-schema)
@@ -41,7 +47,7 @@
 * [Limitations](#limitations)
 * [Team](#team)
 
-\---
+---
 
 ## Overview
 
@@ -62,7 +68,7 @@
 * Does not train or fine-tune any AI model (pre-trained models are used as-is)
 * Does not allow the student to resubmit for the same assignment after the final submission
 
-\---
+---
 
 ## System Architecture
 
@@ -80,58 +86,58 @@
         │                                         │
 ┌───────▼──────────────────┐        ┌────────────▼───────────┐
 │     Core Modules          │        │      Database Layer     │
-│  Tajweed\_analysis.py      │        │  SQLite via database.py │
-│  recitation\_matcher.py    │        │  5 tables              │
-│  muaalem\_phonetics.py     │        └────────────────────────┘
-│  quran\_repository.py      │
+│  Tajweed_analysis.py      │        │  SQLite via database.py │
+│  recitation_matcher.py    │        │  5 tables              │
+│  muaalem_phonetics.py     │        └────────────────────────┘
+│  quran_repository.py      │
 │  scoring.py               │
-│  tajweed\_rules.py         │
+│  tajweed_rules.py         │
 └───────┬──────────────────┘
         │
 ┌───────▼──────────────────────────────────────────────────┐
 │               Pre-Trained AI Models (local)              │
 │  whisper-quran/          tarteel-ai/whisper-base-ar-quran │
-│  muaalem-model-v3\_2/     obadx/muaalem-model-v3\_2        │
+│  muaalem-model-v3_2/     obadx/muaalem-model-v3_2        │
 └──────────────────────────────────────────────────────────┘
 ```
 
-\---
+---
 
 ## AI Pipeline
 
 When a student submits a recitation, the backend runs the following pipeline:
 
 ```
-Audio (WAV) ──► \[1. Validation] ──► \[2. Whisper-Quran]
+Audio (WAV) ──► [1. Validation] ──► [2. Whisper-Quran]
                                            │
                                     Passage verified?
                                        No ──► Reject (422)
                                        Yes ──► Continue
                                            │
-                                    \[3. Muaalem Model]
+                                    [3. Muaalem Model]
                                            │
                                     Qur'anic Phonetic Script
                                            │
-                                    \[4. Rule Engine]
-                                    (Tajweed\_analysis.py)
+                                    [4. Rule Engine]
+                                    (Tajweed_analysis.py)
                                            │
                                     Per-case verdicts
-                                    passed / needs\_review / unmatched
+                                    passed / needs_review / unmatched
                                            │
-                                    \[5. Scoring Engine]
+                                    [5. Scoring Engine]
                                     (scoring.py)
                                            │
                                     Weighted score (0–100)
                                     Word-error penalties applied
                                            │
-                                    \[6. Level Classification]
+                                    [6. Level Classification]
                                     advanced (≥threshold) ?
                                     intermediate (≥threshold) ?
                                     beginner (fallback)
                                            │
-                                    \[7. Save to Database]
+                                    [7. Save to Database]
                                            │
-                                    Result displayed to student \& teacher
+                                    Result displayed to student & teacher
 ```
 
 ### Pre-Trained Models
@@ -139,9 +145,9 @@ Audio (WAV) ──► \[1. Validation] ──► \[2. Whisper-Quran]
 |Model|Hugging Face ID|Purpose|
 |-|-|-|
 |Whisper-Quran|`tarteel-ai/whisper-base-ar-quran`|ASR — verifies that the student read the assigned passage|
-|Muaalem|`obadx/muaalem-model-v3\_2`|Wav2Vec2-BERT with multi-level CTC — produces Qur'anic Phonetic Script|
+|Muaalem|`obadx/muaalem-model-v3_2`|Wav2Vec2-BERT with multi-level CTC — produces Qur'anic Phonetic Script|
 
-\---
+---
 
 ## Project Structure
 
@@ -149,17 +155,17 @@ Audio (WAV) ──► \[1. Validation] ──► \[2. Whisper-Quran]
 project/
 ├── app.py                      # Flask application entry point, all API routes
 ├── database.py                 # All database operations (SQLite)
-├── setup\_models.py             # Downloads and verifies pre-trained models
-├── tajweed\_local.py            # Local tajweed testing utility
+├── setup_models.py             # Downloads and verifies pre-trained models
+├── tajweed_local.py            # Local tajweed testing utility
 ├── requirements.txt            # Python dependencies
 │
 ├── core/
-│   ├── Tajweed\_analysis.py     # Rule-based Tajwīd analysis engine ⭐
+│   ├── Tajweed_analysis.py     # Rule-based Tajwīd analysis engine ⭐
 │   ├── scoring.py              # Weighted scoring and level classification ⭐
-│   ├── recitation\_matcher.py   # Whisper verification + word-level matching
-│   ├── muaalem\_phonetics.py    # Muaalem model wrapper
-│   ├── quran\_repository.py     # Qur'an text loading and normalisation
-│   └── tajweed\_rules.py        # Tajwīd rule definitions and stop-mark data
+│   ├── recitation_matcher.py   # Whisper verification + word-level matching
+│   ├── muaalem_phonetics.py    # Muaalem model wrapper
+│   ├── quran_repository.py     # Qur'an text loading and normalisation
+│   └── tajweed_rules.py        # Tajwīd rule definitions and stop-mark data
 │
 ├── Al-Maqraah/                 # Frontend HTML/CSS/JS
 │   ├── index.html              # Public landing page
@@ -167,7 +173,7 @@ project/
 │   ├── signup.html
 │   ├── recording.html          # Student recording page
 │   ├── result.html             # Student result page
-│   ├── result\_details.html     # Teacher result detail page
+│   ├── result_details.html     # Teacher result detail page
 │   ├── teacher-dashboard.html
 │   ├── scoring-settings.html   # Teacher scoring configuration
 │   ├── teacher-student-results.html
@@ -181,12 +187,12 @@ project/
 │   ├── alquran-cloud-quran-uthmani.raw.json  # Raw Qur'an source
 │   └── maqraah.sqlite3                  # SQLite database
 │
-├── whisper-quran/              # Whisper model files (created by setup\_models.py)
-├── muaalem-model-v3\_2/         # Muaalem model files (created by setup\_models.py)
+├── whisper-quran/              # Whisper model files (created by setup_models.py)
+├── muaalem-model-v3_2/         # Muaalem model files (created by setup_models.py)
 └── uploads/                    # Uploaded audio files (created automatically)
 ```
 
-\---
+---
 
 ## Prerequisites
 
@@ -196,7 +202,7 @@ project/
 * A microphone-capable browser (Chrome or Firefox recommended)
 * **No GPU required** — the system runs on CPU
 
-\---
+---
 
 ## Installation
 
@@ -224,19 +230,19 @@ pip install -r requirements.txt
 ### Step 4 — Download the AI models
 
 ```bash
-python setup\_models.py
+python setup_models.py
 ```
 
-This downloads the Whisper-Quran and Muaalem models from Hugging Face into the `whisper-quran/` and `muaalem-model-v3\_2/` folders. Run this once; subsequent runs skip already-downloaded files.
+This downloads the Whisper-Quran and Muaalem models from Hugging Face into the `whisper-quran/` and `muaalem-model-v3_2/` folders. Run this once; subsequent runs skip already-downloaded files.
 
 To download only one model:
 
 ```bash
-python setup\_models.py --skip-muaalem   # Whisper only
-python setup\_models.py --skip-whisper   # Muaalem only
+python setup_models.py --skip-muaalem   # Whisper only
+python setup_models.py --skip-whisper   # Muaalem only
 ```
 
-\---
+---
 
 ## Running the Application
 
@@ -256,9 +262,9 @@ The port can be changed via the `PORT` environment variable:
 PORT=8080 python app.py
 ```
 
-\---
+---
 
-## User Roles \& Workflow
+## User Roles & Workflow
 
 ### Three Roles
 
@@ -285,7 +291,7 @@ Teacher                              Student
                                     7. Listen back, re-record if needed
                                     8. Submit final recording
                                          ↓
-                                    \[System evaluates]
+                                    [System evaluates]
                                          ↓
                                     9. View result:
                                        assigned level + per-rule breakdown
@@ -298,7 +304,7 @@ Teacher                              Student
 
 > \*\*Important:\*\* After submission, the assignment disappears from the student's view. If the teacher publishes a \*\*new\*\* assignment, it becomes visible and the student can submit again.
 
-\---
+---
 
 ## Scoring System
 
@@ -306,22 +312,22 @@ Each proficiency level has independent settings:
 
 |Setting|Description|Range|
 |-|-|-|
-|`placement\_threshold`|Minimum score to reach this level|0 – 100|
-|`izhar\_enabled` / `izhar\_weight`|Whether Izhār counts and its weight|0 or 1 / 0.0 – 1.0|
-|`idgham\_enabled` / `idgham\_weight`|Same for Idghām|0 or 1 / 0.0 – 1.0|
-|`iqlab\_enabled` / `iqlab\_weight`|Same for Iqlāb|0 or 1 / 0.0 – 1.0|
-|`ikhfa\_enabled` / `ikhfa\_weight`|Same for Ikhfā'|0 or 1 / 0.0 – 1.0|
-|`missing\_word\_penalty`|Penalty per missing word|0.0 – 1.0|
-|`extra\_word\_penalty`|Penalty per extra word|0.0 – 1.0|
-|`different\_word\_penalty`|Penalty per different word|0.0 – 1.0|
+|`placement_threshold`|Minimum score to reach this level|0 – 100|
+|`izhar_enabled` / `izhar_weight`|Whether Izhār counts and its weight|0 or 1 / 0.0 – 1.0|
+|`idgham_enabled` / `idgham_weight`|Same for Idghām|0 or 1 / 0.0 – 1.0|
+|`iqlab_enabled` / `iqlab_weight`|Same for Iqlāb|0 or 1 / 0.0 – 1.0|
+|`ikhfa_enabled` / `ikhfa_weight`|Same for Ikhfā'|0 or 1 / 0.0 – 1.0|
+|`missing_word_penalty`|Penalty per missing word|0.0 – 1.0|
+|`extra_word_penalty`|Penalty per extra word|0.0 – 1.0|
+|`different_word_penalty`|Penalty per different word|0.0 – 1.0|
 
 ### Score Formula
 
 ```
-rule\_score(r)   = passed(r) / total(r) × 100
-base\_score      = Σ( rule\_score(r) × weight(r) ) / Σ( weight(r) )
-penalty\_points  = Σ( count(type) × penalty(type) × 100 )
-final\_score     = clamp( base\_score − penalty\_points, 0, 100 )
+rule_score(r)   = passed(r) / total(r) × 100
+base_score      = Σ( rule_score(r) × weight(r) ) / Σ( weight(r) )
+penalty_points  = Σ( count(type) × penalty(type) × 100 )
+final_score     = clamp( base_score − penalty_points, 0, 100 )
 ```
 
 ### Level Classification
@@ -329,9 +335,9 @@ final\_score     = clamp( base\_score − penalty\_points, 0, 100 )
 The system checks thresholds from highest to lowest:
 
 ```
-if final\_score >= advanced\_threshold  → advanced
-elif final\_score >= intermediate\_threshold → intermediate
-elif final\_score >= beginner\_threshold → beginner
+if final_score >= advanced_threshold  → advanced
+elif final_score >= intermediate_threshold → intermediate
+elif final_score >= beginner_threshold → beginner
 ```
 
 ### Default Settings (configurable by teacher)
@@ -342,18 +348,18 @@ elif final\_score >= beginner\_threshold → beginner
 |Intermediate|70|Izhār, Idghām, Iqlāb|
 |Advanced|85|All four rules|
 
-\---
+---
 
 ## Key Modules
 
-### `core/Tajweed\_analysis.py`
+### `core/Tajweed_analysis.py`
 
-**The Tajwīd rule engine.** Locates every Nūn Sākinah and Tanwīn case in the reference text, aligns it with the Muaalem phonetic output, and produces a verdict (`passed`, `needs\_review`, or `unmatched`) with an Arabic explanation for each case.
+**The Tajwīd rule engine.** Locates every Nūn Sākinah and Tanwīn case in the reference text, aligns it with the Muaalem phonetic output, and produces a verdict (`passed`, `needs_review`, or `unmatched`) with an Arabic explanation for each case.
 
 Key functions:
 
-* `analyze\_noon\_rules\_pronunciation(selection, phonetic\_script)` — public entry point
-* `\_judge\_rule(case, noon\_visible, nasal\_noon\_visible, meem\_visible)` — per-rule verdict logic
+* `analyze_noon_rules_pronunciation(selection, phonetic_script)` — public entry point
+* `_judge_rule(case, noon_visible, nasal_noon_visible, meem_visible)` — per-rule verdict logic
 
 ### `core/scoring.py`
 
@@ -361,35 +367,35 @@ Key functions:
 
 Key functions:
 
-* `calculate\_weighted\_score(summary, recitation\_verification, settings)`
-* `classify\_student\_level(level\_scores)`
+* `calculate_weighted_score(summary, recitation_verification, settings)`
+* `classify_student_level(level_scores)`
 
-### `core/recitation\_matcher.py`
+### `core/recitation_matcher.py`
 
 **Word-level comparison and Whisper verification.** Calls the Whisper-Quran model to transcribe the audio, normalises both the transcript and the reference text, and identifies missing, extra, and different words.
 
 Key functions:
 
-* `verify\_required\_recitation(audio\_path, selection, settings)` — passage verification
-* `match\_recitation\_text(transcript, selection)` — word matching
+* `verify_required_recitation(audio_path, selection, settings)` — passage verification
+* `match_recitation_text(transcript, selection)` — word matching
 
-### `core/muaalem\_phonetics.py`
+### `core/muaalem_phonetics.py`
 
 **Muaalem model wrapper.** Loads the Wav2Vec2-BERT model and produces the Qur'anic Phonetic Script from a WAV file.
 
 Key function:
 
-* `extract\_phonetic\_script(audio\_path)` — returns the phonetic string
+* `extract_phonetic_script(audio_path)` — returns the phonetic string
 
-### `core/quran\_repository.py`
+### `core/quran_repository.py`
 
 **Qur'an text loader and normaliser.** Loads the Uthmani text, identifies Tajwīd case locations, and normalises words for fair comparison.
 
-### `core/tajweed\_rules.py`
+### `core/tajweed_rules.py`
 
 **Tajwīd rule data.** Defines the acoustic signatures for each of the four rules (which phonemes signal Izhār, Idghām, Iqlāb, Ikhfā') and the stop-mark exemption list.
 
-\---
+---
 
 ## Database Schema
 
@@ -399,45 +405,45 @@ Five tables stored in `data/maqraah.sqlite3`:
 users                     assignments
 ──────────────────        ───────────────────────
 id                        id
-full\_name                 teacher\_id  ──► users.id
-email (unique)            student\_id  ──► users.id (NULL = all students)
-password\_hash             surah\_number / surah\_name
-role                      ayah\_from / ayah\_to / ayah\_text
-is\_admin                  status ('pending' | 'done')
-student\_level             created\_at
-created\_at
+full_name                 teacher_id  ──► users.id
+email (unique)            student_id  ──► users.id (NULL = all students)
+password_hash             surah_number / surah_name
+role                      ayah_from / ayah_to / ayah_text
+is_admin                  status ('pending' | 'done')
+student_level             created_at
+created_at
 
-recitations               recitation\_errors
+recitations               recitation_errors
 ───────────────────       ───────────────────────
 id                        id
-student\_id  ──► users.id  recitation\_id ──► recitations.id
-assignment\_id             rule
-audio\_file                status
+student_id  ──► users.id  recitation_id ──► recitations.id
+assignment_id             rule
+audio_file                status
 score                     ayah
-summary (JSON)            source\_text
-phonetic\_script           reason
-engine\_note               created\_at
-created\_at
+summary (JSON)            source_text
+phonetic_script           reason
+engine_note               created_at
+created_at
 
-scoring\_level\_settings
+scoring_level_settings
 ───────────────────────
 level (primary key)
-izhar\_weight / idgham\_weight / iqlab\_weight / ikhfa\_weight
-missing\_word\_penalty / extra\_word\_penalty / different\_word\_penalty
-placement\_threshold
-updated\_at
+izhar_weight / idgham_weight / iqlab_weight / ikhfa_weight
+missing_word_penalty / extra_word_penalty / different_word_penalty
+placement_threshold
+updated_at
 ```
 
-\---
+---
 
 ## Configuration
 
 |Environment Variable|Default|Description|
 |-|-|-|
-|`SECRET\_KEY`|`dev-maqraah-secret`|Flask session secret key (change in production)|
+|`SECRET_KEY`|`dev-maqraah-secret`|Flask session secret key (change in production)|
 |`PORT`|`5000`|Server port|
 
-\---
+---
 
 ## Supported Tajwīd Rules
 
@@ -452,7 +458,7 @@ The system currently evaluates **four rules of Nūn Sākinah (نون ساكنة)
 
 Rules not yet supported: Mīm Sākinah, Mudūd, Qalqalah, and other Tajwīd categories.
 
-\---
+---
 
 ## Limitations
 
@@ -463,7 +469,7 @@ Rules not yet supported: Mīm Sākinah, Mudūd, Qalqalah, and other Tajwīd cate
 * **Stop mark:** The *ṣalā* (ۖ) stop mark is not yet treated as exempt
 * **No GPU required**, but GPU would significantly reduce processing time
 
-\---
+---
 
 ## Team
 
@@ -479,7 +485,6 @@ Rules not yet supported: Mīm Sākinah, Mudūd, Qalqalah, and other Tajwīd cate
 
 **Advisor:** Dr. Khaled Albishre
 
-\---
+---
 
 *Al-Maqra'ah © 2026 — All rights reserved*
-
